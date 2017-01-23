@@ -1,18 +1,45 @@
-Welcome To DStore
-#################
+Introduction To DStore
+######################
 
 DStore (DataStore) is a Python Object Relational Mapper (ORM) that allows easy description of data models.
 
 Installing
 ==========
 
-PyMan is available from the PyPi repository.
+From PyPi
+---------
+DStore is available from the PyPi repository at `DStore <https://pypi.python.org/pypi/DStore>`_.
 
 This means that all you have to do to install PyMan is run the following in a console:
 
 .. code-block:: console
 
     $ pip install dstore
+
+From Source
+-----------
+DStore can also be installed from source by downloading from GitHub and running setup.py.
+
+.. code-block:: console
+
+    $ wget https://github.com/MarkLark/dstore/archive/master.tar.gz
+    $ tar xvf master.tar.gz
+    $ cd dstore-master
+    $ python setup.py install
+
+
+Requirements
+============
+DStore does not rely on any other Python Packages.
+
+It has also been thoroughly tested to work on the following Python Versions:
+
+* 2.7
+* 3.2
+* 3.3
+* 3.4
+* 3.5
+* 3.6
 
 Minimal Example
 ===============
@@ -36,12 +63,18 @@ Minimal Example
     store.connect()
     store.create_all()
 
+    # Create a new Car, then retrieve it using filter and all
+    Car( manufacturer = "Holden", make = "Commodore", year = 2010 ).add()
+    holdens = Car.filter( manufacturer = "Holden" )
+    cars = Car.all()
+
     # Destroy all instances and shut down the application
     store.destroy_all()
     store.disconnect()
     store.destroy_app()
 
 
-Documentation: `ReadTheDocs <http://dstore.readthedocs.io/>`_
-
-Source Code: `GitHub <https://github.com/MarkLark/dstore>`_
+How It Works
+============
+DStore works by defining the models that you wish to use.
+It then provides a layer for storing the model instances.
