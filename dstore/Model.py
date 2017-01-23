@@ -148,7 +148,7 @@ class Model( object ):
         values = [ ]
 
         if len( rows ) == 0:
-            print "<- EMPTY ->"
+            print( "<- EMPTY ->" )
             return
 
         for row in rows:
@@ -157,9 +157,9 @@ class Model( object ):
                 v.append( str( row.__dict__[ key ] ) )
             values.append( v )
 
-        print tabulate(
+        print( tabulate(
             values,
             headers = keys,
             tablefmt = "fancy_grid"
-        )
+        ))
 
