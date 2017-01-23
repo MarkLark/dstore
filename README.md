@@ -1,2 +1,0 @@
-# dstore
-DataStore: Python ORM
