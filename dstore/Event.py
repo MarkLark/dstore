@@ -63,11 +63,11 @@ class Manager( object ):
                         "%s.%s" % (l.__module__, l.__name__)
                     ])
 
-        print tabulate(
+        print( tabulate(
             rows,
             headers = keys,
             tablefmt = "fancy_grid"
-        )
+        ))
 
 
 class Event( object ):
