@@ -1,9 +1,7 @@
-import Event
-from Store import Store
-from Model import Model
-import var
-import mod
-from MemoryStore import MemoryStore
+from . import Event, var, mod
+from .Store import Store
+from .Model import Model
+from .MemoryStore import MemoryStore
 
 
 __all__ = [ "Event", "Interface", "Store", "Model", "Storage", "var", "mod", "MemoryStore" ]
