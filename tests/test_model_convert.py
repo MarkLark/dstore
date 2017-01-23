@@ -49,8 +49,7 @@ class Convert( BaseTest ):
         Car( manufacturer = "Ford", make = "Falcon", year = 2007 ).add()
 
         for car in Car.all():
-            print car
+            print( car )
 
     def test_to_dict_with_none( self ):
-        print Car( manufacturer = "Holden", make = "Rodeo" ).to_dict()
-
+        print( Car( manufacturer = "Holden", make = "Rodeo" ).to_dict() )
