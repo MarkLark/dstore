@@ -3,8 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DStore's documentation!
-==================================
+Welcome to DStore!
+==================
+
+DStore (DataStore) is a Python Object Relational Mapper (ORM) that allows easy description of data models.
 
 .. toctree::
    :maxdepth: 2

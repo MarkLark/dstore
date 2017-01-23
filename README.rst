@@ -1,11 +1,8 @@
 Welcome To DStore
-#####################
+#################
 
 DStore (DataStore) is a Python Object Relational Mapper (ORM) that allows easy description of data models.
 
-
-PyMan is a small library that allows you to build your own CLI to manage your projects.
-This way you do not have to remember commands to run, you simply navigate your CLI to run those commands.
 
 Installing
 ==========
