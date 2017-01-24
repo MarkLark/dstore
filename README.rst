@@ -7,7 +7,11 @@ Welcome To DStore
 .. image:: https://img.shields.io/travis/MarkLark/dstore/master.svg
     :target: https://travis-ci.org/MarkLark/dstore
 
+.. image:: https://img.shields.io/pypi/v/dstore.svg
+    :target: https://pypi.python.org/pypi/dstore
 
+.. image:: https://img.shields.io/pypi/pyversions/dstore.svg
+    :target: https://pypi.python.org/pypi/dstore
 
 DStore (DataStore) is a Python Object Relational Mapper (ORM) that allows easy description of data models.
 
