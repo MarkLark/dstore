@@ -66,6 +66,7 @@ Minimal Example
    crud
    security
    web_api
+   events
 
 Indices and tables
 ==================

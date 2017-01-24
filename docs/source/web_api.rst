@@ -24,7 +24,7 @@ You have two choices to install dstore-mysql, using pip or from source.
 
 From PyPi
 ---------
-DStore is available from the PyPi repository at `DStore <https://pypi.python.org/pypi/DStore>`_.
+DStore is available from the PyPi repository at `https://pypi.python.org/pypi/flask-dstore <https://pypi.python.org/pypi/flask-dstore>`_.
 
 This means that all you have to do to install PyMan is run the following in a console:
 
