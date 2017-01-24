@@ -1,6 +1,9 @@
 Welcome To DStore
 #################
 
+.. image:: https://coveralls.io/repos/github/MarkLark/dstore/badge.svg?branch=master
+    :target: https://coveralls.io/github/MarkLark/dstore?branch=master
+
 DStore (DataStore) is a Python Object Relational Mapper (ORM) that allows easy description of data models.
 
 Installing
