@@ -50,8 +50,10 @@ Minimal Example
 
    introduction
    models
+   storage
    crud
-   modules
+   security
+   web_api
 
 Indices and tables
 ==================

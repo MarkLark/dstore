@@ -36,12 +36,17 @@ Minimal Example
     store.connect()
     store.create_all()
 
+    # Create a new Car, then retrieve it using filter and all
+    Car( manufacturer = "Holden", make = "Commodore", year = 2010 ).add()
+    holdens = Car.filter( manufacturer = "Holden" )
+    cars = Car.all()
+
     # Destroy all instances and shut down the application
     store.destroy_all()
     store.disconnect()
     store.destroy_app()
 
 
-Documentation: `ReadTheDocs <http://dstore.readthedocs.io/>`_
+Documentation: `ReadTheDocs <http://python-dstore.readthedocs.io/>`_
 
 Source Code: `GitHub <https://github.com/MarkLark/dstore>`_
