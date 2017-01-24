@@ -10,7 +10,7 @@ From PyPi
 ---------
 DStore is available from the PyPi repository at `DStore <https://pypi.python.org/pypi/DStore>`_.
 
-This means that all you have to do to install PyMan is run the following in a console:
+This means that all you have to do to install DStore is run the following in a console:
 
 .. code-block:: console
 

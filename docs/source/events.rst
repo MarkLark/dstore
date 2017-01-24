@@ -33,6 +33,11 @@ For example, to listen to before_init_app on the store:
 
 Store Events
 ============
+To listen to a store event, you add your method to the store's event object.
+
+.. code-block:: python
+
+    store.events.before_init_app += method_to_call
 
 init_app
 --------
@@ -142,13 +147,32 @@ This event is fired before and after you execute disconnect on a store
 
 Model Events
 ============
+To listen to a store event, you add your method to the store's event object.
+
+.. code-block:: python
+
+    from dstore import MemoryStore, Model, var, mod
+
+    class Car( Model ):
+        _namespace = "cars.make"
+        _vars = [
+            var.RowID,
+            var.String( "manufacturer", 32, mods = [ mod.NotNull() ] ),
+            var.String( "make", 32, mods = [ mod.NotNull() ] ),
+            var.Number( "year", mods = [ mod.NotNull(), mod.Min( 1950 ), mod.Max( 2017 ) ] ),
+        ]
+
+    def car_before_add( event, model, instance ):
+        print( "Attempting to add a new %s instance" % model._namespace )
+
+    Car.events.before_add += car_before_add
 
 add
 ---
 This event is fired before and after you attempt to add a new Model Instance
 
-.. py:function:: before_disconnect( event, model, instance )
-                 after_disconnect( event, model, instance )
+.. py:function:: before_add( event, model, instance )
+                 after_add( event, model, instance )
 
     .. py:attribute:: model
 
@@ -157,3 +181,48 @@ This event is fired before and after you attempt to add a new Model Instance
     .. py:attribute:: instance
 
         The instance that is attempting to be added to the Model Class storage
+
+delete
+------
+This event is fired before and after you attempt to delete an existing Model Instance
+
+.. py:function:: before_delete( event, model, instance )
+                 after_delete( event, model, instance )
+
+    .. py:attribute:: model
+
+        The Model Class of the instance to be deleted
+
+    .. py:attribute:: instance
+
+        The instance that is attempting to be deleted from the Model Class storage
+
+update
+------
+This event is fired before and after you attempt to update an existing Model Instance
+
+.. py:function:: before_update( event, model, instance )
+                 after_update( event, model, instance )
+
+    .. py:attribute:: model
+
+        The Model Class of the instance to be updated
+
+    .. py:attribute:: instance
+
+        The instance that is attempting to be updated
+
+validate
+--------
+This event is fired before and after you attempt to add or update a Model Instance
+
+.. py:function:: before_validate( event, model, instance )
+                 after_validate( event, model, instance )
+
+    .. py:attribute:: model
+
+        The Model Class of the instance to be added or updated
+
+    .. py:attribute:: instance
+
+        The instance that is attempting to be added or updated

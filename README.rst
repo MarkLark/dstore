@@ -18,13 +18,39 @@ DStore (DataStore) is a Python Object Relational Mapper (ORM) that allows easy d
 Installing
 ==========
 
-PyMan is available from the PyPi repository.
+From PyPi
+---------
+DStore is available from the PyPi repository at `DStore <https://pypi.python.org/pypi/DStore>`_.
 
-This means that all you have to do to install PyMan is run the following in a console:
+This means that all you have to do to install DStore is run the following in a console:
 
 .. code-block:: console
 
     $ pip install dstore
+
+From Source
+-----------
+DStore can also be installed from source by downloading from GitHub and running setup.py.
+
+.. code-block:: console
+
+    $ wget https://github.com/MarkLark/dstore/archive/master.tar.gz
+    $ tar xvf master.tar.gz
+    $ cd dstore-master
+    $ python setup.py install
+
+
+Requirements
+============
+DStore does not rely on any other Python Packages.
+
+It has also been thoroughly tested to work on the following Python Versions:
+
+* 2.7
+* 3.3
+* 3.4
+* 3.5
+* 3.6
 
 Minimal Example
 ===============
@@ -60,5 +86,3 @@ Minimal Example
 
 
 Documentation: `ReadTheDocs <http://python-dstore.readthedocs.io/>`_
-
-Source Code: `GitHub <https://github.com/MarkLark/dstore>`_
