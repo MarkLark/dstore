@@ -86,3 +86,7 @@ Minimal Example
 
 
 Documentation: `ReadTheDocs <http://python-dstore.readthedocs.io/>`_
+
+Test Results: `Travis CI <https://travis-ci.org/MarkLark/dstore>`_
+
+Test Coverage: `Coveralls <https://coveralls.io/github/MarkLark/dstore>`_
