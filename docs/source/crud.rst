@@ -1,5 +1,5 @@
-DStore - CRUD
-#############
+CRUD
+####
 
 The Data Store provides functionality to Create, Read, Update, Delete and Filter the Model instances.
 

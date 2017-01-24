@@ -35,7 +35,6 @@ DStore does not rely on any other Python Packages.
 It has also been thoroughly tested to work on the following Python Versions:
 
 * 2.7
-* 3.2
 * 3.3
 * 3.4
 * 3.5

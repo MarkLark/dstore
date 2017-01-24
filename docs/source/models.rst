@@ -1,5 +1,5 @@
-DStore - Models
-###############
+Models
+######
 
 Models are used to describe the data types you wish to use.
 
