@@ -48,15 +48,15 @@ This variable is used to store an integer value.
 
 .. autoclass:: Number
 
-    .. attribute:: name
+    .. py:attribute:: name
 
         The name of the variable
 
-    .. attribute:: default
+    .. py:attribute:: default
 
         The default value if none is supplied
 
-    .. attribute:: mods
+    .. py:attribute:: mods
 
         A list of Variable Modifiers
 
@@ -73,15 +73,15 @@ This variable is used to store a boolean value.
 
 .. autoclass:: Boolean
 
-    .. attribute:: name
+    .. py:attribute:: name
 
         The name of the variable
 
-    .. attribute:: default
+    .. py:attribute:: default
 
         The default value if none is supplied
 
-    .. attribute:: mods
+    .. py:attribute:: mods
 
         A list of Variable Modifiers
 
@@ -98,19 +98,19 @@ This variable is used to store a string of static length.
 
 .. autoclass:: Character
 
-    .. attribute:: name
+    .. py:attribute:: name
 
         The name of the variable
 
-    .. attribute:: length
+    .. py:attribute:: length
 
         The length of the string
 
-    .. attribute:: default
+    .. py:attribute:: default
 
         The default value if none is supplied
 
-    .. attribute:: mods
+    .. py:attribute:: mods
 
         A list of Variable Modifiers.
 
@@ -129,19 +129,19 @@ This variable is used to store binary data.
 
 .. autoclass:: Binary
 
-    .. attribute:: name
+    .. py:attribute:: name
 
         The name of the variable
 
-    .. attribute:: length
+    .. py:attribute:: length
 
         The length of the data
 
-    .. attribute:: default
+    .. py:attribute:: default
 
         The default value if none is supplied
 
-    .. attribute:: mods
+    .. py:attribute:: mods
 
         A list of Variable Modifiers
 
@@ -160,19 +160,19 @@ This variable is used to store a string of variable length.
 
 .. autoclass:: String
 
-    .. attribute:: name
+    .. py:attribute:: name
 
         The name of the variable
 
-    .. attribute:: length
+    .. py:attribute:: length
 
         The maximum length of the string
 
-    .. attribute:: default
+    .. py:attribute:: default
 
         The default value if none is supplied
 
-    .. attribute:: mods
+    .. py:attribute:: mods
 
         A list of Variable Modifiers
 
@@ -191,15 +191,15 @@ This variable is used to store text.
 
 .. autoclass:: Text
 
-    .. attribute:: name
+    .. py:attribute:: name
 
         The name of the variable
 
-    .. attribute:: default
+    .. py:attribute:: default
 
         The default value if none is supplied
 
-    .. attribute:: mods
+    .. py:attribute:: mods
 
         A list of Variable Modifiers
 
@@ -216,15 +216,15 @@ This variable is used to store a floating point integer.
 
 .. autoclass:: Text
 
-    .. attribute:: name
+    .. py:attribute:: name
 
         The name of the variable
 
-    .. attribute:: default
+    .. py:attribute:: default
 
         The default value if none is supplied
 
-    .. attribute:: mods
+    .. py:attribute:: mods
 
         A list of Variable Modifiers
 
@@ -241,19 +241,19 @@ This variable is used to store a an enum.
 
 .. autoclass:: Enum
 
-    .. attribute:: name
+    .. py:attribute:: name
 
         The name of the variable
 
-    .. attribute:: values
+    .. py:attribute:: values
 
         The list of available choices
 
-    .. attribute:: default
+    .. py:attribute:: default
 
         The default value if none is supplied
 
-    .. attribute:: mods
+    .. py:attribute:: mods
 
         A list of Variable Modifiers
 
