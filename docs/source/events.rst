@@ -1,6 +1,8 @@
 Events
 ######
 
+.. contents:: Table of Contents
+
 Introduction
 ============
 DStore makes the use of an Event Manager in the Store and Models themselves.
@@ -30,6 +32,7 @@ For example, to listen to before_init_app on the store:
     store.events.after_init_app  += after_init_app
 
     store.init_app()
+
 
 Store Events
 ============

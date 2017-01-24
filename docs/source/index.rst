@@ -58,6 +58,7 @@ Minimal Example
 
 .. toctree::
    :maxdepth: 4
+   :numbered:
    :caption: Contents:
 
    introduction
