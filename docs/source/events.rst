@@ -214,7 +214,7 @@ This event is fired before and after you attempt to update an existing Model Ins
 
 validate
 --------
-This event is fired before and after you attempt to add or update a Model Instance
+This event is fired before and after you attempt to add or update a Model Instance (i.e. on validation)
 
 .. py:function:: before_validate( event, model, instance )
                  after_validate( event, model, instance )
@@ -226,3 +226,108 @@ This event is fired before and after you attempt to add or update a Model Instan
     .. py:attribute:: instance
 
         The instance that is attempting to be added or updated
+
+all
+---
+This event is fired before and after you attempt to get all Model instances
+
+.. py:function:: before_all( event, model )
+
+    .. py:attribute:: model
+
+        The Model Class of the instance to be added or updated
+
+.. py:function:: after_all( event, model, instances )
+
+    .. py:attribute:: model
+
+        The Model Class of the instance to be added or updated
+
+    .. py:attribute:: instances
+
+        The list of all instances
+
+get
+---
+This event is fired before and after you attempt to get a Model instance
+
+.. py:function:: before_get( event, model, row_id )
+
+    .. py:attribute:: model
+
+        The Model Class of the instance to be added or updated
+
+    .. py:attribute:: row_id
+
+        The ID of the instance to retrieve
+
+.. py:function:: after_get( event, model, instance )
+
+    .. py:attribute:: model
+
+        The Model Class of the instance to be added or updated
+
+    .. py:attribute:: instance
+
+        The Model instance retrieved
+
+empty
+-----
+This event is fired before and after you attempt to delete all Model instances
+
+.. py:function:: before_empty( event, model )
+                 after_empty( event, model )
+
+    .. py:attribute:: model
+
+        The Model Class that is to be emptied
+
+create
+------
+This event is fired before and after you attempt to create the storage for the Model instances
+
+.. py:function:: before_create( event, model )
+                 after_create( event, model )
+
+    .. py:attribute:: model
+
+        The Model Class that storage is to be created for
+
+destroy
+-------
+This event is fired before and after you attempt to destroy the storage for the Model instances
+
+.. py:function:: before_destroy( event, model )
+                 after_destroy( event, model )
+
+    .. py:attribute:: model
+
+        The Model Class that storage is to be destroyed for
+
+filter
+------
+This event is fired before and after you attempt to get a filtered list of the Model instances
+
+.. py:function:: before_filter( event, model, params )
+
+    .. py:attribute:: model
+
+        The Model Class to filter for instances
+
+    .. py:attribute:: params
+
+        A dictionary of the parameters used to filter the list
+
+.. py:function:: after_filter( event, model, instances, params )
+
+    .. py:attribute:: model
+
+        The Model Class to filter for instances
+
+    .. py:attribute:: instances
+
+        The filtered list of Model instances
+
+    .. py:attribute:: params
+
+        A dictionary of the parameters used to filter the list

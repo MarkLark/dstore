@@ -85,6 +85,9 @@ Minimal Example
     store.destroy_app()
 
 
+External Links
+==============
+
 Documentation: `ReadTheDocs <http://python-dstore.readthedocs.io/>`_
 
 Test Results: `Travis CI <https://travis-ci.org/MarkLark/dstore>`_
