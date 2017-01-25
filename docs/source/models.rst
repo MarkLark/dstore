@@ -96,40 +96,48 @@ DateTime
 
 Modifiers
 =========
-Variable Modifiers for a Model
+.. module:: dstore.mod
+
+.. autoclass:: Mod
+    :members:
 
 PrimaryKey
 ----------
-dstore.mod.PrimaryKey
+.. autoclass:: PrimaryKey
 
 NotNull
 -------
-dstore.mod.NotNull
+.. autoclass:: NotNull
+    :members:
 
 AutoIncrement
 -------------
-dstore.mod.AutoIncrement
+.. autoclass:: AutoIncrement
 
 Unique
 ------
-dstore.mod.Unique
+.. autoclass:: Unique
 
 ForeignKey
 ----------
-dstore.mod.ForeignKey
+.. autoclass:: ForeignKey
 
 Min
 ---
-dstore.mod.Min
+.. autoclass:: Min
+    :members:
 
 Max
 ---
-dstore.mod.Max
+.. autoclass:: Max
+    :members:
 
 Length
 ------
-dstore.mod.Length
+.. autoclass:: Length
+    :members:
 
 InEnum
 ------
-dstore.mod.InEnum
+.. autoclass:: InEnum
+    :members:

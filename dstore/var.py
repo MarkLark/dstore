@@ -180,17 +180,29 @@ class Enum( Variable ):
     """
     This variable is used to store a an enum.
 
-    :param name: The name of the Variable instance inside a Model Class
+    :param str name: The name of the Variable instance inside a Model Class
     :param values: The list of available choices
+    :type values: list[str]
     :param default: The default value to give this variable
+    :type default: str or None
     :param mods: A list of modifiers. The mod dstore.mod.InEnum( values ) is always added to this list
+    :type mods: list[dstore.mod.Mod]
 
     Usage:
 
     .. code-block:: python
 
-        from dstore import var
+        from dstore import var, mod
         var.Enum( "car_type", [ "truck", "bus", "ute", "car", "motorbike" ], mods = [ mod.NotNull() ] )
+
+        # or
+
+        var.Enum(
+            name    = "car_type",
+            values  = [ "truck", "bus", "ute", "car", "motorbike" ],
+            default = "car",
+            mods    = [ mod.NotNull() ]
+        )
     """
     type = "Enum"
 
