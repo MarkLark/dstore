@@ -2,9 +2,23 @@ from . import mod
 
 
 class Variable( object ):
+    """
+    The base class used for creating Variable types
+    This also provides a validate method which iterates over the
+    modifiers and runs their validate method on this variable instance.
+    """
     type = None
 
     def __init__( self, name, default = None, mods = None ):
+        """
+        Construct a new Variable type
+
+        :param name: The name of the Variable instance inside a Model Class
+        :param default: The default value to give this variable
+        :param mods: A list of modifiers, i.e. dstore.mod.NotNull()
+
+        This constructs a new Variable instance
+        """
         self.name    = name
         self.default = default
         self._mods   = mods
@@ -12,6 +26,12 @@ class Variable( object ):
         if self._mods is None: self._mods = []
 
     def validate( self, instance ):
+        """
+        Validate the value of an instance of this Variable type (this is used by the dstore.Model.validate method)
+
+        :param instance: The instance of this variable type
+        :return: If not a valid value, an exception of dstore.Error.ValidationError will be raised
+        """
         val = instance.__dict__[ self.name ]
         for m in self._mods:
             m.validate( instance, self, val )

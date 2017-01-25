@@ -11,6 +11,14 @@ Variables
 =========
 Variables within a Model
 
+.. module:: dstore.var
+
+.. autoclass:: Variable
+    :members:
+    :inherited-members:
+
+    .. automethod:: __init__
+
 RowID
 -----
 RowID denotes an instance ID, and is not a Class but an instance of dstore.var.Number:
@@ -44,19 +52,17 @@ Number
 ------
 This variable is used to store an integer value.
 
-.. module:: dstore.var
-
 .. autoclass:: Number
 
-    .. py:attribute:: name
+    .. attribute:: name
 
         The name of the variable
 
-    .. py:attribute:: default
+    .. attribute:: default
 
         The default value if none is supplied
 
-    .. py:attribute:: mods
+    .. attribute:: mods
 
         A list of Variable Modifiers
 
@@ -73,15 +79,15 @@ This variable is used to store a boolean value.
 
 .. autoclass:: Boolean
 
-    .. py:attribute:: name
+    .. attribute:: name
 
         The name of the variable
 
-    .. py:attribute:: default
+    .. attribute:: default
 
         The default value if none is supplied
 
-    .. py:attribute:: mods
+    .. attribute:: mods
 
         A list of Variable Modifiers
 
@@ -98,19 +104,19 @@ This variable is used to store a string of static length.
 
 .. autoclass:: Character
 
-    .. py:attribute:: name
+    .. attribute:: name
 
         The name of the variable
 
-    .. py:attribute:: length
+    .. attribute:: length
 
         The length of the string
 
-    .. py:attribute:: default
+    .. attribute:: default
 
         The default value if none is supplied
 
-    .. py:attribute:: mods
+    .. attribute:: mods
 
         A list of Variable Modifiers.
 
@@ -129,19 +135,19 @@ This variable is used to store binary data.
 
 .. autoclass:: Binary
 
-    .. py:attribute:: name
+    .. attribute:: name
 
         The name of the variable
 
-    .. py:attribute:: length
+    .. attribute:: length
 
         The length of the data
 
-    .. py:attribute:: default
+    .. attribute:: default
 
         The default value if none is supplied
 
-    .. py:attribute:: mods
+    .. attribute:: mods
 
         A list of Variable Modifiers
 
@@ -160,19 +166,19 @@ This variable is used to store a string of variable length.
 
 .. autoclass:: String
 
-    .. py:attribute:: name
+    .. attribute:: name
 
         The name of the variable
 
-    .. py:attribute:: length
+    .. attribute:: length
 
         The maximum length of the string
 
-    .. py:attribute:: default
+    .. attribute:: default
 
         The default value if none is supplied
 
-    .. py:attribute:: mods
+    .. attribute:: mods
 
         A list of Variable Modifiers
 
@@ -191,15 +197,15 @@ This variable is used to store text.
 
 .. autoclass:: Text
 
-    .. py:attribute:: name
+    .. attribute:: name
 
         The name of the variable
 
-    .. py:attribute:: default
+    .. attribute:: default
 
         The default value if none is supplied
 
-    .. py:attribute:: mods
+    .. attribute:: mods
 
         A list of Variable Modifiers
 
@@ -216,15 +222,15 @@ This variable is used to store a floating point integer.
 
 .. autoclass:: Text
 
-    .. py:attribute:: name
+    .. attribute:: name
 
         The name of the variable
 
-    .. py:attribute:: default
+    .. attribute:: default
 
         The default value if none is supplied
 
-    .. py:attribute:: mods
+    .. attribute:: mods
 
         A list of Variable Modifiers
 
@@ -241,19 +247,19 @@ This variable is used to store a an enum.
 
 .. autoclass:: Enum
 
-    .. py:attribute:: name
+    .. attribute:: name
 
         The name of the variable
 
-    .. py:attribute:: values
+    .. attribute:: values
 
         The list of available choices
 
-    .. py:attribute:: default
+    .. attribute:: default
 
         The default value if none is supplied
 
-    .. py:attribute:: mods
+    .. attribute:: mods
 
         A list of Variable Modifiers
 
