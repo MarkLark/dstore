@@ -15,6 +15,14 @@ This simply stores the model instances in an array in memory.
 
 Keep in mind that this storage type is runtime only, meaning that the data is wiped when the application closes.
 
+Usage
+-----
+
+.. code-block:: python
+
+    from dstore import MemoryStore
+    store = MemoryStore( models )
+
 MySQLStore
 ==========
 .. image:: https://img.shields.io/coveralls/MarkLark/dstore-mysql.svg
@@ -61,9 +69,16 @@ DStore can also be installed from source by downloading from GitHub and running 
     $ python setup.py install
 
 Requirements
-============
+------------
 DStore-MySQL requires the Python package `MySQL-python <https://pypi.python.org/pypi/MySQL-python/>`_.
 
+Usage
+-----
+
+.. code-block:: python
+
+    from dstore_mysql import MySQLStore
+    store = MySQLStore( models )
 
 MongoStore
 ==========
@@ -111,5 +126,13 @@ DStore-Mongo can also be installed from source by downloading from GitHub and ru
     $ python setup.py install
 
 Requirements
-============
+------------
 DStore-Mongo requires the Python package `PyMongo <https://pypi.python.org/pypi/pymongo>`_.
+
+Usage
+-----
+
+.. code-block:: python
+
+    from dstore_mongo import MongoStore
+    store = MongoStore( models )
