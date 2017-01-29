@@ -4,8 +4,8 @@ DStore provides an abstraction layer to store the model instances.
 
 
 
-MemoryStore
-===========
+Memory
+======
 
 Introduction
 ------------
@@ -23,8 +23,8 @@ Usage
     from dstore import MemoryStore
     store = MemoryStore( models )
 
-MySQLStore
-==========
+MySQL
+=====
 .. image:: https://img.shields.io/coveralls/MarkLark/dstore-mysql.svg
     :target: https://coveralls.io/github/MarkLark/dstore-mysql?branch=master
 
@@ -80,8 +80,8 @@ Usage
     from dstore_mysql import MySQLStore
     store = MySQLStore( models )
 
-MongoStore
-==========
+MongoDB
+=======
 .. image:: https://img.shields.io/coveralls/MarkLark/dstore-mongo.svg
     :target: https://coveralls.io/github/MarkLark/dstore-mongo?branch=master
 
