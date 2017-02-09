@@ -56,6 +56,10 @@ class InstanceNotFound( BaseTest ):
         with assert_raises( INF ):
             Car.get( 0 )
 
+    def test_filter( self ):
+        with assert_raises( INF ):
+            Car.filter( manufacturer = "Something", make = "New" )
+
 
 class IncompatibleSource( BaseTest ):
     def test_models( self ):
