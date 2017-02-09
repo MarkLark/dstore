@@ -5,4 +5,4 @@ from .MemoryStore import MemoryStore
 
 
 __all__ = [ "Event", "Store", "Model", "var", "mod", "MemoryStore" ]
-__version__ = '0.1.0a1'
+__version__ = '0.1.1'

@@ -10,7 +10,7 @@ with open( path.join( root_dir, 'README.rst' ), encoding = 'utf-8' ) as f:
 
 setup(
     name='DStore',
-    version='0.1.0a1',
+    version='0.1.1',
     url = 'https://github.com/MarkLark/dstore',
     license='MIT',
     author='Mark Pittaway',
