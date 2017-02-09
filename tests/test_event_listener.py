@@ -1,4 +1,4 @@
-from nose.tools import eq_, assert_raises
+from nose.tools import eq_, raises
 from dstore import MemoryStore
 from dstore.Error import EventNotFound, EventListenerNotFound, EventManagerNotReady
 from . import BaseTest
@@ -8,23 +8,21 @@ class UnknownEvent( BaseTest ):
     auto_create = False
     auto_init   = False
 
+    @raises( EventNotFound )
     def test( self ):
         store = MemoryStore( self.models )
         store.init_app()
-
-        with assert_raises( EventNotFound ):
-            store.events.before_something += self.test
+        store.events.before_something += self.test
 
 
 class UnknownListener( BaseTest ):
     auto_create = False
     auto_init   = False
 
+    @raises( EventListenerNotFound )
     def test( self ):
         store = MemoryStore( self.models )
-
-        with assert_raises( EventListenerNotFound ):
-            store.events.before_init_app -= self.test
+        store.events.before_init_app -= self.test
 
 
 class AddListener( BaseTest ):
@@ -68,8 +66,7 @@ class ManagerNotReady( BaseTest ):
     def before_register_models( self, event, store ):
         pass
 
+    @raises( EventManagerNotReady )
     def test( self ):
         store = MemoryStore( self.models )
-
-        with assert_raises( EventManagerNotReady ):
-            store.events.before_register_models += self.before_register_models
+        store.events.before_register_models += self.before_register_models

@@ -1,4 +1,4 @@
-from nose.tools import assert_raises
+from nose.tools import raises
 from . import BaseTest, Car
 from dstore import Model, var, mod
 from dstore.Error import ModelNotRegistered as MNR, InstanceNotFound as INF, IncompatibleSource as IS,\
@@ -14,61 +14,61 @@ class TestModel( Model ):
 
 
 class ModelNotRegistered( BaseTest ):
+    @raises( MNR )
     def test_all( self ):
-        with assert_raises( MNR ):
-            self.store.all( TestModel )
+        self.store.all( TestModel )
 
+    @raises( MNR )
     def test_add( self ):
-        with assert_raises( MNR ):
-            self.store.add( TestModel( test = 123 ) )
+        self.store.add( TestModel( test = 123 ) )
 
+    @raises( MNR )
     def test_delete( self ):
-        with assert_raises( MNR ):
-            self.store.delete( TestModel( id = 1 ) )
+        self.store.delete( TestModel( id = 1 ) )
 
+    @raises(MNR)
     def test_update( self ):
-        with assert_raises( MNR ):
-            self.store.update( TestModel( id = 0, test = 456 ) )
+        self.store.update( TestModel( id = 0, test = 456 ) )
 
+    @raises(MNR)
     def test_get( self ):
-        with assert_raises( MNR ):
-            self.store.get( TestModel, 0 )
+        self.store.get( TestModel, 0 )
 
+    @raises(MNR)
     def test_empty( self ):
-        with assert_raises( MNR ):
-            self.store.empty( TestModel )
+        self.store.empty( TestModel )
 
+    @raises(MNR)
     def test_create( self ):
-        with assert_raises( MNR ):
-            self.store.create( TestModel )
+        self.store.create( TestModel )
 
+    @raises(MNR)
     def test_destroy( self ):
-        with assert_raises( MNR ):
-            self.store.destroy( TestModel )
+        self.store.destroy( TestModel )
 
+    @raises(MNR)
     def test_filter( self ):
-        with assert_raises( MNR ):
-            self.store.filter( TestModel, test = 456 )
+        self.store.filter( TestModel, test = 456 )
 
 
 class InstanceNotFound( BaseTest ):
+    @raises( INF )
     def test_get( self ):
-        with assert_raises( INF ):
-            Car.get( 0 )
+        Car.get( 0 )
 
+    @raises(INF)
     def test_filter( self ):
-        with assert_raises( INF ):
-            Car.filter( manufacturer = "Something", make = "New" )
+        Car.filter( manufacturer = "Something", make = "New" )
 
 
 class IncompatibleSource( BaseTest ):
+    @raises( IS )
     def test_models( self ):
-        with assert_raises( IS ):
-            Car().set( TestModel() )
+        Car().set( TestModel() )
 
+    @raises(IS)
     def test_list( self ):
-        with assert_raises( IS ):
-            Car().set( [ 1, 2, 3 ] )
+        Car().set( [ 1, 2, 3 ] )
 
     def test_already_assigned( self ):
         car = Car( manufacturer = "Holden", make = "Rodeo", year = 2002 )
@@ -76,15 +76,16 @@ class IncompatibleSource( BaseTest ):
 
 
 class ModelNotFound( BaseTest ):
+    @raises( MNF )
     def test_get_model( self ):
-        with assert_raises( MNF ):
-            self.store.get_model("cars.something")
+        self.store.get_model("cars.something")
 
 
 class VariableNotFound( BaseTest ):
+    @raises( VNF )
     def test_get_var( self ):
-        with assert_raises( VNF ):
-            Car.get_var( "many" )
+        Car.get_var( "many" )
 
-        with assert_raises( VNF ):
-            Car.get_var( "manufacturer", "Number" )
+    @raises( VNF )
+    def test_get_var_type( self ):
+        Car.get_var( "manufacturer", "Number" )
