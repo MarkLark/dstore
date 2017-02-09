@@ -147,6 +147,25 @@ This event is fired before and after you execute disconnect on a store
 
         The Data Store that disconnect is being run on
 
+add_bulk
+--------
+This event is fired before and after you execute add_bulk on a store
+
+.. py:function:: before_add_bulk( event, store, data )
+                 after_add_bulk( event, store, data, instances )
+
+    .. py:attribute:: store
+
+        The Data Store that disconnect is being run on
+
+    .. py:attribute:: data
+
+        The dictionary provided that is used to add Model instances to the Store
+
+    .. py:attribute:: instances
+
+        The Model instances that were added to the Store
+
 
 Model Events
 ============
