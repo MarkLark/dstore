@@ -32,6 +32,10 @@ class Store( BaseTest ):
         model = self.store.get_model("cars.make")
         eq_(model, Car, "Model class %s is not Car[cars.make]" % model)
 
+    def test_model_get_var( self ):
+        var_man = Car.get_var( "manufacturer" )
+        var_make = Car.get_var( "make", "String" )
+
 
 def con_cache( store ):
     return store

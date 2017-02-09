@@ -1,7 +1,8 @@
 from nose.tools import ok_, eq_, raises, assert_raises
 from . import BaseTest, Car, AllVars, Model, var, mod
 from dstore import Model, var, mod
-from dstore.Error import ModelNotRegistered as MNR, InstanceNotFound as INF, IncompatibleSource as IS, ModelNotFound as MNF
+from dstore.Error import ModelNotRegistered as MNR, InstanceNotFound as INF, IncompatibleSource as IS,\
+    ModelNotFound as MNF, VariableNotFound as VNF
 
 
 class TestModel( Model ):
@@ -74,3 +75,12 @@ class ModelNotFound( BaseTest ):
     def test_get_model( self ):
         with assert_raises( MNF ):
             self.store.get_model("cars.something")
+
+
+class VariableNotFound( BaseTest ):
+    def test_get_var( self ):
+        with assert_raises( VNF ):
+            Car.get_var( "many" )
+
+        with assert_raises( VNF ):
+            Car.get_var( "manufacturer", "Number" )
