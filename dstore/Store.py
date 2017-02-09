@@ -13,7 +13,8 @@ class StoreEvents( Event.Manager ):
         "before_destroy_all", "after_destroy_all",
         "before_empty_all", "after_empty_all",
         "before_connect", "after_connect",
-        "before_disconnect", "after_disconnect"
+        "before_disconnect", "after_disconnect",
+        "before_add_bulk", "after_add_bulk"
     ]
 
     def __getattr__( self, name ):
@@ -158,3 +159,15 @@ class Store( object ):
         for model in self.models:
             if model._namespace == namespace: return model
         raise ModelNotFound( self, namespace )
+
+    def add_bulk( self, data = None ):
+        self.events.before_add_bulk( self, store = self, data = data )
+        for namespace in data:
+            try:
+                model = self.get_model( namespace )
+            except ModelNotFound:
+                continue
+
+            for row in data[namespace]:
+                model( **row ).add()
+        self.events.after_add_bulk( self, store = self, data = data )
