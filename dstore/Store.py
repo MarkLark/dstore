@@ -162,12 +162,16 @@ class Store( object ):
 
     def add_bulk( self, data = None ):
         self.events.before_add_bulk( self, store = self, data = data )
+        instances = {}
         for namespace in data:
             try:
                 model = self.get_model( namespace )
             except ModelNotFound:
                 continue
 
+            instances[namespace] = []
+
             for row in data[namespace]:
-                model( **row ).add()
-        self.events.after_add_bulk( self, store = self, data = data )
+                instances[namespace].append( model( **row ).add() )
+        
+        self.events.after_add_bulk( self, store = self, data = data, instances = instances )
