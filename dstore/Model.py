@@ -1,4 +1,4 @@
-from .Error import IncompatibleSource
+from .Error import IncompatibleSource, VariableNotFound
 from . import Event
 
 
@@ -29,7 +29,7 @@ class Model( object ):
             if var.name == name:
                 if typename is None: return var
                 elif var.type == typename: return var
-        return None
+        raise VariableNotFound( cls._store, cls, name, typename )
 
     def __init__( self, **kwargs ):
         self.set( kwargs )

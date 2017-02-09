@@ -106,3 +106,14 @@ class ModelNotFound( ModelError ):
             namespace,
             "Model %s not found in store %s" % (namespace, store.name)
         )
+
+
+class VariableNotFound( ModelError ):
+    def __init__( self, store, model, variable, typename ):
+        if typename is None: msg = "Variable %s not found in Model %s" % (variable, model._namespace)
+        else               : msg = "Variable %s.%s not found in Model %s" % (typename, variable, model._namespace )
+        super( VariableNotFound, self ).__init__(
+            store,
+            model,
+            msg
+        )
