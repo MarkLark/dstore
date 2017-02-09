@@ -97,3 +97,12 @@ class EventManagerNotReady( EventError ):
             None,
             "EventManager for %s is not ready" % mgr.name
         )
+
+
+class ModelNotFound( ModelError ):
+    def __init__( self, store, namespace ):
+        super( ModelNotFound, self ).__init__(
+            store,
+            namespace,
+            "Model %s not found in store %s" % (namespace, store.name)
+        )

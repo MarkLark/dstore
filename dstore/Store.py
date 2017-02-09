@@ -1,4 +1,4 @@
-from .Error import ModelNotRegistered
+from .Error import ModelNotRegistered, ModelNotFound
 from . import Event
 from .Model import ModelEvents
 
@@ -153,3 +153,8 @@ class Store( object ):
         for model in reversed( self.models ):
             model.empty()
         self.events.after_empty_all( self, store = self )
+
+    def get_model( self, namespace ):
+        for model in self.models:
+            if model._namespace == namespace: return model
+        raise ModelNotFound( self, namespace )
