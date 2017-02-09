@@ -1,5 +1,5 @@
-from nose.tools import ok_, eq_, raises, assert_raises
-from . import BaseTest, Car, AllVars, Model, var, mod
+from nose.tools import eq_
+from . import BaseTest, Car
 
 
 class CRUD( BaseTest ):

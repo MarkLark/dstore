@@ -1,5 +1,4 @@
-from nose.tools import ok_, eq_, raises, assert_raises
-from . import BaseTest, Car, AllVars, Model, var, mod
+from . import BaseTest
 
 
 class Config( BaseTest ):

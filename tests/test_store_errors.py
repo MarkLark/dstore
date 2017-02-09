@@ -1,5 +1,5 @@
-from nose.tools import ok_, eq_, raises, assert_raises
-from . import BaseTest, Car, AllVars, Model, var, mod
+from nose.tools import assert_raises
+from . import BaseTest, Car
 from dstore import Model, var, mod
 from dstore.Error import ModelNotRegistered as MNR, InstanceNotFound as INF, IncompatibleSource as IS,\
     ModelNotFound as MNF, VariableNotFound as VNF

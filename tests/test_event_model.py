@@ -1,7 +1,6 @@
-from nose.tools import ok_, eq_, raises, assert_raises
-from . import BaseTest, Car, AllVars, Model, var, mod
-from dstore import MemoryStore
-from dstore.Error import EventNotFound, EventListenerNotFound, InstanceNotFound
+from nose.tools import eq_, assert_raises
+from . import BaseTest, Car
+from dstore.Error import InstanceNotFound
 
 
 class CancelAdd( BaseTest ):
