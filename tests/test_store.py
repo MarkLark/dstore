@@ -1,6 +1,5 @@
 from nose.tools import ok_, eq_, raises, assert_raises
 from . import BaseTest, Car, AllVars, Model, var, mod
-from dstore.Error import ModelNotFound
 
 
 class Store( BaseTest ):
@@ -32,10 +31,6 @@ class Store( BaseTest ):
     def test_get_model( self ):
         model = self.store.get_model("cars.make")
         eq_(model, Car, "Model class %s is not Car[cars.make]" % model)
-
-    def test_get_model_not_found( self ):
-        with assert_raises(ModelNotFound):
-            self.store.get_model("cars.something")
 
 
 def con_cache( store ):

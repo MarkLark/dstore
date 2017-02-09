@@ -173,5 +173,5 @@ class Store( object ):
 
             for row in data[namespace]:
                 instances[namespace].append( model( **row ).add() )
-        
+
         self.events.after_add_bulk( self, store = self, data = data, instances = instances )
