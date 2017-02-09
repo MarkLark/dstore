@@ -10,6 +10,9 @@ class Bulk( BaseTest ):
                 { "manufacturer": "Holden", "make": "Commodore", "year": 2006 },
                 { "manufacturer": "Holden", "make": "Commodore", "year": 2007 },
                 { "manufacturer": "Holden", "make": "Commodore", "year": 2008 },
+            ],
+            "doesnt.exist": [
+                { "some": "new", "data": "not", "to": "fail" }
             ]
         }
         self.store.add_bulk( data )
