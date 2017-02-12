@@ -17,15 +17,18 @@ class Manager( object ):
         self._ready = True
 
     def __getattr__( self, name ):
-        if not self._ready: raise EventManagerNotReady( self )
-        if name not in self._events: raise EventNotFound( self, name )
-        if name not in self.__dict__: self.__dict__[ name ] = Event( self, name )
-        return self.__dict__[ name ]
+        return self.get(name)
 
     def clear( self ):
         for name, event in self.__dict__.items():
             if not isinstance( event, Event ): continue
             event.listeners = []
+
+    def get( self, name ):
+        if not self._ready: raise EventManagerNotReady( self )
+        if name not in self._events: raise EventNotFound( self, name )
+        if name not in self.__dict__: self.__dict__[ name ] = Event( self, name )
+        return self.__dict__[ name ]
 
     def print_table( self ):
         from tabulate import tabulate
