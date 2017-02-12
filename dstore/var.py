@@ -218,9 +218,8 @@ class ForeignKey( Number ):
 
     :param namespace: The namespace of the Model Class this variable references
 
-    This variable type is a subclass of dstore.var.Number, with the following mods:
+    This variable type is a subclass of dstore.var.Number, with the following mod:
 
-    * dstore.mod.NotNull
     * dstore.mod.ForeignKey
 
     The name given to this variable is the name of the Model Class being referenced with a suffix of '_id"
@@ -232,17 +231,17 @@ class ForeignKey( Number ):
         from dstore import var
         var.ForeignKey( "cars.make" )
 
-    Is similar to:
+    Is the same as:
 
     .. code-block:: python
 
         from dstore import var
-        var.Number( "cars_make_id", mods = [ dstore.mod.NotNull(), dstore.mod.ForeignKey( "cars.make" ) )
+        var.Number( "cars_make_id", mods = [ dstore.mod.ForeignKey( "cars.make" ) )
     """
     type = "ForeignKey"
 
     def __init__( self, namespace ):
-        super( ForeignKey, self ).__init__( "%s_id" % namespace.replace( ".", "_" ), mods = [ mod.NotNull(), mod.ForeignKey( namespace ) ] )
+        super( ForeignKey, self ).__init__( "%s_id" % namespace.replace( ".", "_" ), mods = [ mod.ForeignKey( namespace ) ] )
 
 
 class Date( Variable ):
