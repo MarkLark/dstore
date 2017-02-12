@@ -98,6 +98,7 @@ class Store( object ):
         for model in self.models:
             model.events = ModelEvents()
             model.events.init( model._namespace )
+            model.init_event_listeners()
 
     def register_models( self ):
         self.events.before_register_models( self, store = self )

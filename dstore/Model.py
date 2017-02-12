@@ -163,3 +163,21 @@ class Model( object ):
             tablefmt = "fancy_grid"
         ))
 
+    @classmethod
+    def init_event_listeners( cls ):
+        m = cls()
+        for name in dir(cls):
+            func = getattr( cls, name )
+            if not callable( func ): continue
+            elif name not in ModelEvents._events: continue
+
+            # We only allow @staticmethod's in Model Class' to use event listeners
+            if not _is_static_method(m, name): continue
+            event = cls.events.get(name)
+            event += func
+
+
+def _is_static_method(instance, name):
+    from types import FunctionType
+    func = getattr(instance, name)
+    return isinstance(func, FunctionType)
