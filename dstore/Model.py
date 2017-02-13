@@ -131,9 +131,14 @@ class Model( object ):
         cls.events.after_destroy( cls, model = cls )
 
     @classmethod
-    def filter( cls, **kwargs ):
+    def filter( cls, to_dict = False, **kwargs ):
         cls.events.before_filter( cls, model = cls, params = kwargs )
         instances = cls._store.filter( cls, **kwargs )
+        if to_dict:
+            rtn = []
+            for instance in instances:
+                rtn.append( instance.to_dict() )
+            instances = rtn
         cls.events.after_filter( cls, model = cls, instances = instances, params = kwargs )
         return instances
 
