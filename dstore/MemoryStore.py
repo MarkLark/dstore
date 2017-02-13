@@ -5,17 +5,18 @@ from .Error import InstanceNotFound
 class MemoryStore( Store ):
     def __init__( self, models = None, name = "DataStore", config = None, config_prefix = "DSTORE_", con_cache = None ):
         super( MemoryStore, self ).__init__( models, name, config, config_prefix, con_cache )
-        self.data = {}
+        self.data    = {}
+        self.next_id = {}
 
     def add( self, instance ):
         super( MemoryStore, self ).add( instance )
-        self.data[ instance._namespace ].append( instance )
-        instance.id = len( self.data[ instance._namespace ] ) - 1
+        instance.id = self.next_id[ instance._namespace ]
+        self.data[ instance._namespace ][ instance.id ] = instance
+        self.next_id[ instance._namespace ] += 1
 
     def delete( self, instance ):
         super( MemoryStore, self ).delete( instance )
-        del self.data[ instance._namespace ][ instance.id ]
-        self._fix_ids( instance )
+        self.data[ instance._namespace ].pop( instance.id )
 
     def update( self, instance ):
         super( MemoryStore, self ).update( instance )
@@ -23,31 +24,33 @@ class MemoryStore( Store ):
 
     def all( self, cls ):
         super( MemoryStore, self ).all( cls )
-        return list( self.data[ cls._namespace ])
+        return list( self.data[ cls._namespace ].values() )
 
     def get( self, cls, row_id ):
         super( MemoryStore, self ).get( cls, row_id )
         try:
             return self.data[ cls._namespace ][ row_id ]
-        except IndexError:
+        except KeyError:
             raise InstanceNotFound( self, cls( id = row_id ) )
 
     def empty( self, cls ):
         super( MemoryStore, self ).empty( cls )
-        self.data[ cls._namespace ] = []
+        self.data[ cls._namespace ] = {}
 
     def create( self, cls ):
         super( MemoryStore, self ).create( cls )
-        self.data[ cls._namespace ] = []
+        self.data[ cls._namespace ] = {}
+        self.next_id[ cls._namespace ] = 0
 
     def destroy( self, cls ):
         super( MemoryStore, self ).destroy( cls )
         self.data.pop( cls._namespace )
+        self.next_id[ cls._namespace ] = 0
 
     def filter( self, cls, **kwargs ):
         super( MemoryStore, self ).filter( cls, **kwargs )
         rtn = []
-        for row in self.data[ cls._namespace ]:
+        for row in self.data[ cls._namespace ].values():
             add_row = True
             for var in cls._vars:
                 if var.name not in kwargs: continue
@@ -64,15 +67,3 @@ class MemoryStore( Store ):
             raise InstanceNotFound( self, cls( **kwargs ) )
 
         return rtn
-
-    def _fix_ids( self, instance ):
-        i = instance.id
-        for row in self.data[ instance._namespace ][ i: ]:
-            row.id = i
-            i += 1
-
-    def _fix_all_ids( self, namespace ):
-        i = 0
-        for row in self.data[ namespace ]:
-            row.id = i
-            i += 1
